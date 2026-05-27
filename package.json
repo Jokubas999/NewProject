@@ -9,6 +9,7 @@
     "build": "bun run build.ts"
   },
   "dependencies": {
+    "@heroicons/react": "^2.2.0",
     "@radix-ui/react-label": "^2.1.7",
     "@radix-ui/react-select": "^2.2.6",
     "@radix-ui/react-slot": "^1.2.3",
@@ -17,9 +18,10 @@
     "bun-react-template": ".",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "heroicons-react": "^1.4.1",
     "lucide-react": "^1",
-    "react": "^19",
-    "react-dom": "^19",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
     "react-router": "^7.15.1",
     "react-router-dom": "^7.15.1",
     "tailwind-merge": "^3.3.1",

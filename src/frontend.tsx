@@ -14,6 +14,7 @@ import LoginPage from "./pages/login";
 import RegisterPage from "./pages/register";
 import SettingsPage from "./pages/settings";
 import CreateListingPage from "./pages/createListing";
+import ListingPage from "./pages/listings";
 
 const elem = document.getElementById("root")!;
 const app = (
@@ -25,6 +26,7 @@ const app = (
         <Route path="/register" element={<RegisterPage />}/>
         <Route path="/settings" element={<SettingsPage />}/>
         <Route path="/create-listing" element={<CreateListingPage />}/>
+        <Route path="/listing/:id" element={<ListingPage />}/>
       </Routes>
     </BrowserRouter>
   </StrictMode>
