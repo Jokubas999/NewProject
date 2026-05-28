@@ -113,7 +113,7 @@ export function App() {
 
   return (
     <div>
-      <div className="min-w-screen min-h-screen bg-gray-100">
+      <div className="min-w-screen min-h-screen">
         <Navbar />
         <form onSubmit={handleSubmit}>
           <main className="p-4 w-200 m-auto relative flex flex-col gap-4">

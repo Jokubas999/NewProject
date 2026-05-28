@@ -170,6 +170,91 @@ const server = serve({
         }
       },
     },
+    "/api/getAllListings": {
+      async GET() {
+        try {
+          const listings = db
+            .query(`SELECT * FROM listings ORDER BY id DESC`)
+            .all();
+
+          const images = db
+            .query(`SELECT * FROM listing_images`)
+            .all();
+
+          const grouped = listings.map((listing) => {
+            return {
+              ...listing,
+              images: images
+                .filter((img) => img.listing_id === listing.id)
+                .map((img) => img.image_path),
+            };
+          });
+
+          return Response.json(grouped);
+
+        } catch (err) {
+          console.error(err);
+
+          return Response.json(
+            { error: "Server error" },
+            { status: 500 }
+          );
+        }
+      },
+    },
+    "/api/getAllUsers": {
+      async GET() {
+        try {
+          const users = db
+            .query(`SELECT * FROM users`)
+            .all();
+
+          const grouped = users.map((user) => {
+            return {
+              ...user,
+            };
+          });
+
+          return Response.json(grouped);
+
+        } catch (err) {
+          console.error(err);
+
+          return Response.json(
+            { error: "Server error" },
+            { status: 500 }
+          );
+        }
+      },
+    },
+    "/api/make-admin": {
+      async POST(req) {
+        try {
+          const body = await req.json();
+          const { username } = body;
+
+          db.run(
+            `
+            UPDATE users
+            SET admin = NOT admin
+            WHERE username = ?
+            `,
+            [username]
+          );
+          return Response.json({
+            success: true,
+          });
+        }
+          catch (err) {
+            console.error(err);
+
+            return Response.json(
+              { error: "Server error" },
+              { status: 500 }
+            );
+          }
+      },
+    },
     "/api/createListing": {
       async POST(req) {
         try {

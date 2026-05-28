@@ -6,7 +6,7 @@ export default function Navbar() {
       <ul className="flex flex-row w-full mr-5 items-center">
         <li className="flex flex-row gap-2">
           <div className="rounded-full w-7 h-7 bg-gray-400 text-white text-xs flex items-center justify-center font-bold">
-            {localStorage.getItem("username")?.charAt(0)}
+            {localStorage.getItem("username")?.charAt(0).toUpperCase()}
           </div>
 
           <p className="mt-0.5">

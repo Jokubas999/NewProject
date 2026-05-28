@@ -206,7 +206,7 @@ export function App() {
   };
 
   return (
-    <div className="min-w-screen min-h-screen bg-gray-100">
+    <div className="min-w-screen min-h-screen">
       <Navbar />
 
       <main className="p-4 w-200 m-auto relative flex flex-col gap-4">
@@ -266,7 +266,7 @@ export function App() {
               <p className="text-gray-600">
                 {listing.category.charAt(0).toUpperCase() + listing.category.slice(1)}
               </p>
-              <input type="button" value="★" className="cursor-pointer text-yellow-400 text-4xl absolute right-0" />
+              <input type="button" value="☆" className="cursor-pointer text-yellow-400 text-4xl absolute right-0" />
             </div>
             <p className="text-gray-700 font-semibold px-3">
               {listing.description}
